@@ -1,0 +1,13 @@
+     ==> HTTP, HTTPS
+        
+     HTTP =>    A protocol for transferring data which is understand by browser and server.
+     HTTPS =>   HTTPS + Data Encryption (during transmission)
+    
+
+  ==> Core Modules
+
+  1. http 
+  2. https 
+  3. fs
+  4. path
+  5. os 
