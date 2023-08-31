@@ -1,14 +1,12 @@
 const express = require("express");
 const shopRouter = express.Router();
+const path = require("path");
 
-// Display product form
 shopRouter.get("/", (req, res) => {
-  res.json({ message: "Display product form" });
+  res.sendFile(path.join(__dirname, "../", "views", "shop.html"));
 });
 
-// Add product (using POST request)
 shopRouter.post("/", (req, res) => {
-  // Logic to add the product
   res.json({ message: "Product added successfully" });
 });
 

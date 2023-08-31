@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/admin", adminRouter);
-app.use("/add-product", shopRouter);
+app.use("/shop", shopRouter);
 
 // Default 404 handler
 app.use((req, res, next) => {
