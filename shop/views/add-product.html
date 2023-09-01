@@ -4,20 +4,96 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Product</title>
+    <style>
+      /* Reset some default styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #e74c3c;
+        color: #fff;
+        text-align: center;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      header a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0 1rem;
+      }
+
+      main {
+        max-width: 600px;
+        margin: 2rem auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 2rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      input[type="text"] {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+      }
+
+      button[type="submit"] {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #c0392b;
+      }
+    </style>
   </head>
   <body>
     <header>
       <nav>
-        <ul>
-          <li><a href="/">Shop</a></li>
-          <li><a href="/add-product">Add Product</a></li>
-        </ul>
+        <a href="/shop">Shop</a>
+        <a href="admin/add-product">Add Product</a>
       </nav>
     </header>
     <main>
-      <form action="/add-product" method="POST">
-        <input type="text" name="title" />
-        <button type="button">Add Products</button>
+      <h1>Add a New Product</h1>
+      <form action="admin/add-product" method="POST">
+        <label for="title">Product Title:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Enter product title"
+        />
+        <button type="submit">Add Product</button>
       </form>
     </main>
   </body>

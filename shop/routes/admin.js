@@ -4,7 +4,7 @@ const path = require("path");
 const rootDir = require("../utils/path");
 
 // Welcome message for admin panel
-adminRouter.get("/add-product", (req, res) => {
+adminRouter.get("/admin/add-product", (req, res) => {
   res.sendFile(path.join(rootDir, "views", "add-product.html"));
 });
 
