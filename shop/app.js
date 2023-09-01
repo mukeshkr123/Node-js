@@ -5,6 +5,9 @@ const path = require("path");
 const rootDir = require("./utils/path");
 const app = express();
 
+app.set("view engine", "pug");
+app.set("views", "views");
+
 // Middleware for parsing URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
 // Middleware for static files

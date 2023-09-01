@@ -5,8 +5,7 @@ const rootDir = require("../utils/path");
 const { products } = require("./admin");
 
 shopRouter.get("/", (req, res) => {
-  console.log(products);
-  res.sendFile(path.join(rootDir, "views", "shop.html"));
+  res.render("shop");
 });
 
 shopRouter.post("/", (req, res) => {
