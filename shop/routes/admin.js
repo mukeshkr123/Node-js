@@ -3,9 +3,16 @@ const adminRouter = express.Router();
 const path = require("path");
 const rootDir = require("../utils/path");
 
-// Welcome message for admin panel
-adminRouter.get("/admin/add-product", (req, res) => {
+const products = [];
+
+adminRouter.get("/add-product", (req, res) => {
   res.sendFile(path.join(rootDir, "views", "add-product.html"));
 });
 
-module.exports = adminRouter;
+adminRouter.post("/add-product", (req, res) => {
+  products.push({ title: req.body.title });
+  res.redirect("/");
+});
+
+exports.adminRouter = adminRouter;
+exports.products = products;

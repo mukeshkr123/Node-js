@@ -2,8 +2,10 @@ const express = require("express");
 const shopRouter = express.Router();
 const path = require("path");
 const rootDir = require("../utils/path");
+const { products } = require("./admin");
 
-shopRouter.get("/shop", (req, res) => {
+shopRouter.get("/", (req, res) => {
+  console.log(products);
   res.sendFile(path.join(rootDir, "views", "shop.html"));
 });
 

@@ -1,5 +1,5 @@
 const express = require("express");
-const adminRouter = require("./routes/admin");
+const { adminRouter } = require("./routes/admin");
 const shopRouter = require("./routes/shop");
 const path = require("path");
 const rootDir = require("./utils/path");
@@ -11,8 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
-app.use("/", adminRouter);
-app.use("/", shopRouter);
+app.use("/admin", adminRouter);
+app.use(shopRouter);
 
 // Default 404 handler
 app.use((req, res, next) => {
