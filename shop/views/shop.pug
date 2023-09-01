@@ -3,7 +3,7 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title My Awesome Store
+    title= docTitle
     link(rel="stylesheet", href="/css/main.css")
   body
     header.main-header
@@ -17,13 +17,7 @@ html(lang="en")
     main.main-content
       h2 My Products
       ul.product-list
-        li.product-item
-          h2 Product 1
-          p Description of Product 1...
-        li.product-item
-          h2 Product 2
-          p Description of Product 2...
-        li.product-item
-          h2 Product 3
-          p Description of Product 3...
-        //- Add more product items here
+        each product in prods
+          li.product-item
+            h2= product.title
+            p Description of #{product.title}...
