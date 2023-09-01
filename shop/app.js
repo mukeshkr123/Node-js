@@ -3,11 +3,12 @@ const adminRouter = require("./routes/admin");
 const shopRouter = require("./routes/shop");
 const path = require("path");
 const rootDir = require("./utils/path");
-
 const app = express();
 
 // Middleware for parsing URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
+// Middleware for static files
+app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.use("/", adminRouter);
