@@ -1,15 +1,13 @@
-const express = require("express");
-const shopRouter = express.Router();
 const path = require("path");
-const rootDir = require("../utils/path");
-const { products } = require("./admin");
 
-shopRouter.get("/", (req, res) => {
-  res.render("shop", { prods: products, docTitle: "Shop " });
-});
+const express = require("express");
 
-shopRouter.post("/", (req, res) => {
-  res.json({ message: "Product added successfully" });
-});
+const rootDir = require("../util/path");
+const adminData = require("./admin");
+const { getProducts } = require("../controllers/productCtrl");
 
-module.exports = shopRouter;
+const router = express.Router();
+
+router.get("/", getProducts);
+
+module.exports = router;

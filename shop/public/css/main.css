@@ -1,74 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  padding: 1rem;
+  margin: auto;
 }
 
 .main-header {
-  background-color: #e74c3c;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 3.5rem;
+  background-color: #00695c;
+  padding: 0 1.5rem;
 }
 
-.main-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+.main-header__nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.main-header-nav ul {
+.main-header__item-list {
   list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
-.main-header-nav li {
-  display: inline;
-  margin-right: 20px;
+.main-header__item {
+  margin: 0 1rem;
+  padding: 0;
 }
 
-.main-header-nav a {
+.main-header__item a {
   text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.2rem;
+  color: white;
 }
 
-.main-header-nav a:hover {
-  text-decoration: underline;
+.main-header__item a:hover,
+.main-header__item a:active,
+.main-header__item a.active {
+  color: #ffeb3b;
 }
 
-.main-content {
-  padding: 2rem;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  margin: 20px;
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: stretch;
 }
 
-.product-list {
-  list-style: none;
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
-.product-item {
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+.card__header,
+.card__content {
+  padding: 1rem;
 }
 
-.product-item h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.card__header h1,
+.card__content h1,
+.card__content h2,
+.card__content p {
+  margin: 0;
 }
 
-.product-item p {
-  font-size: 1rem;
+.card__image {
+  width: 100%;
+}
+
+.card__image img {
+  width: 100%;
+}
+
+.card__actions {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card__actions button,
+.card__actions a {
+    margin: 0 0.25rem;
+}
+
+.btn {
+  font: inherit;
+  border: 1px solid #00695c;
+  color: #00695c;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #00695c;
+  color: white;
 }
