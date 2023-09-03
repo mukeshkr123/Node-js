@@ -27,15 +27,15 @@ exports.postAddProduct = (req, res, next) => {
 // Controller function to render the "Shop" page and display a list of products
 exports.getProducts = (req, res, next) => {
   // Retrieve all products from the data store
-  const products = Product.fetchAll();
-
-  // Render the "Shop" page with the list of products and other data
-  res.render("shop", {
-    prods: products,
-    pageTitle: "Shop",
-    path: "/",
-    hasProducts: products.length > 0,
-    activeShop: true,
-    productCSS: true,
+  Product.fetchAll((products) => {
+    // Render the "Shop" page with the list of products and other data
+    res.render("shop", {
+      prods: products,
+      pageTitle: "Shop",
+      path: "/",
+      hasProducts: products.length > 0,
+      activeShop: true,
+      productCSS: true,
+    });
   });
 };
