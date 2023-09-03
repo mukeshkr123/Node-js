@@ -1,49 +1,49 @@
-const { error } = require("console");
 const fs = require("fs");
 const path = require("path");
 
-// Create an empty array to store product objects
-const products = [];
+// Construct the path to the JSON data file
+const dataPath = path.join(
+  path.dirname(process.mainModule.filename),
+  "data",
+  "products.json"
+);
 
-// Define a Product class
-module.exports = class Product {
-  // Constructor to initialize a product with a title
+class Product {
   constructor(title) {
-    this.title = title; // Set the product's title
+    this.title = title;
   }
 
-  // Method to save the product to the products array
+  // Save the product to the JSON file
   save() {
-    const p = path.join(
-      path.dirname(process.mainModule.filename),
-      "data",
-      "products.json"
-    );
-    fs.readFile(p, (error, fileContent) => {
-      let products = [];
-      if (!error) {
-        products = JSON.parse(fileContent);
-      }
+    // Use the constructor to access the static getAllProducts method
+    this.constructor.getAllProducts((products) => {
       products.push(this);
-      fs.writeFile(p, JSON.stringify(products), (err) => {
-        console.log(err);
+      // Write the updated product list back to the JSON file
+      fs.writeFile(dataPath, JSON.stringify(products), (err) => {
+        if (err) {
+          console.error("Error writing to file:", err);
+        }
       });
     });
   }
 
-  // Static method to fetch all products (no need to create an instance)
+  // Fetch all products and pass them to a callback function
   static fetchAll(cb) {
-    const p = path.join(
-      path.dirname(process.mainModule.filename),
-      "data",
-      "products.json"
-    );
-    fs.readFile(p, (err, fileContent) => {
-      if (err) {
-        cb([]);
-      }
-      cb(JSON.parse(fileContent));
-    });
-    return products; // Return the array of all products
+    this.getAllProducts(cb);
   }
-};
+
+  // Read all products from the JSON file
+  static getAllProducts(cb) {
+    fs.readFile(dataPath, (err, fileContent) => {
+      if (err) {
+        console.error("Error reading file:", err);
+        cb([]);
+      } else {
+        // Parse the JSON data and pass it to the callback
+        cb(JSON.parse(fileContent));
+      }
+    });
+  }
+}
+
+module.exports = Product;
